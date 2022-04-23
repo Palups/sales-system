@@ -1,0 +1,20 @@
+unit uVariables;
+
+interface
+
+uses
+  FireDAC.Phys.PGDef,
+  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
+
+var
+  //connection
+  conn_userName: String;
+  conn_database: String;
+  conn_password: String;
+
+  //database
+  db_table: TFDQuery;
+
+implementation
+
+end.

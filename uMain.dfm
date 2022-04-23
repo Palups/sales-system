@@ -20,33 +20,33 @@ object fMain: TfMain
     Left = 8
     Top = 8
     object Cadastros1: TMenuItem
-      Caption = 'Cadastros'
+      Caption = 'Registries'
       object Protudos1: TMenuItem
-        Caption = 'Produtos'
+        Caption = 'Products'
         OnClick = Protudos1Click
       end
       object N1: TMenuItem
         Caption = '-'
       end
       object N2: TMenuItem
-        Caption = 'Clientes'
+        Caption = 'Customers'
       end
       object Fornecedores1: TMenuItem
-        Caption = 'Fornecedores'
+        Caption = 'Suppliers'
         Enabled = False
       end
       object Fornecedores2: TMenuItem
         Caption = '-'
       end
       object Usurios1: TMenuItem
-        Caption = 'Usu'#225'rios'
+        Caption = 'Users'
       end
       object Usurios2: TMenuItem
-        Caption = 'Empresa'
+        Caption = 'Company'
       end
     end
     object RelatriodeProdutosVendidos2: TMenuItem
-      Caption = 'Estoque'
+      Caption = 'Stock'
       object Entrada1: TMenuItem
         Caption = 'Entrada'
       end

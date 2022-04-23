@@ -21,7 +21,7 @@ object fProdutos: TfProdutos
     Left = 0
     Top = 0
     Width = 818
-    Height = 435
+    Height = 416
     Align = alClient
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -29,6 +29,20 @@ object fProdutos: TfProdutos
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDrawColumnCell = gridProductsDrawColumnCell
+  end
+  object sbProducts: TStatusBar
+    Left = 0
+    Top = 416
+    Width = 818
+    Height = 19
+    Panels = <
+      item
+        Width = 50
+      end>
+    ExplicitLeft = 296
+    ExplicitTop = 376
+    ExplicitWidth = 0
   end
   object mProdutos: TMainMenu
     Left = 768
