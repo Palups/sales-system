@@ -1,0 +1,11 @@
+unit uVariables;
+
+interface
+
+var
+  //connection
+  conn_name: String;
+
+implementation
+
+end.

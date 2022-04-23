@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, System.Actions, Vcl.ActnList,
-  Vcl.ToolWin, Vcl.ComCtrls, System.ImageList, Vcl.ImgList, Vcl.StdActns;
+  Vcl.ToolWin, Vcl.ComCtrls, System.ImageList, Vcl.ImgList, Vcl.StdActns,
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
+  IdExplicitTLSClientServerBase, IdFTP;
 
 type
   TfMain = class(TForm)
@@ -62,14 +64,16 @@ implementation
 
 {$R *.dfm}
 
+uses uProdutos;
+
 procedure TfMain.Protudos1Click(Sender: TObject);
 begin
   try
-    Application.CreateForm(Tfrm_Prod, frm_Prod);
+    Application.CreateForm(TfProdutos, fProdutos);
     Screen.Cursor := crDefault;
-    frm_Prod.ShowModal;
+    fProdutos.ShowModal;
   finally
-    frm_Prod.Free;
+    fProdutos.Free;
   end;
 end;
 

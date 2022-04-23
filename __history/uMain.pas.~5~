@@ -1,0 +1,76 @@
+unit uMain;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, System.Actions, Vcl.ActnList,
+  Vcl.ToolWin, Vcl.ComCtrls, System.ImageList, Vcl.ImgList, Vcl.StdActns;
+
+type
+  TfMain = class(TForm)
+    mMain: TMainMenu;
+    Cadastros1: TMenuItem;
+    Cadastros2: TMenuItem;
+    R1: TMenuItem;
+    teis1: TMenuItem;
+    Permisses1: TMenuItem;
+    Protudos1: TMenuItem;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    Fornecedores1: TMenuItem;
+    Fornecedores2: TMenuItem;
+    Usurios1: TMenuItem;
+    Usurios2: TMenuItem;
+    Nova1: TMenuItem;
+    Editarvenda1: TMenuItem;
+    N3: TMenuItem;
+    RelatriodeProdutosVendidos2: TMenuItem;
+    Entrada1: TMenuItem;
+    Entrada2: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    Novooramento1: TMenuItem;
+    Novooramento2: TMenuItem;
+    N7: TMenuItem;
+    Agenda1: TMenuItem;
+    Agenda2: TMenuItem;
+    N4: TMenuItem;
+    N8: TMenuItem;
+    Verso1: TMenuItem;
+    Verso2: TMenuItem;
+    Produtos1: TMenuItem;
+    Produtos2: TMenuItem;
+    Fornecedores3: TMenuItem;
+    Fornecedores4: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    Oramentos1: TMenuItem;
+    N11: TMenuItem;
+    N12: TMenuItem;
+    procedure Protudos1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fMain: TfMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfMain.Protudos1Click(Sender: TObject);
+begin
+  try
+    Application.CreateForm(Tfrm_Prod, frm_Prod);
+    Screen.Cursor := crDefault;
+    frm_Prod.ShowModal;
+  finally
+    frm_Prod.Free;
+  end;
+end;
+
+end.

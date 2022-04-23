@@ -1,0 +1,29 @@
+unit uDatabaseRelatedFunctions;
+
+interface
+
+function isConnected: Boolean;
+
+implementation
+
+uses uDM, uVariables;
+
+Function isConnected: Boolean;
+Begin
+  //DM.FDConnection1.Params.UserName := conn_host;
+  DM.FDConnection1.Params.UserName := conn_userName; //postgres
+  DM.FDConnection1.Params.Password := conn_password;
+  DM.FDConnection1.Params.Database := conn_database; //db_system
+  //DM.FDConnection1.Params.Protocol := 'mysql-5';
+  DM.FDConnection1.Params.porta := StrToInt(connPorta);
+
+  try
+    DM.z_Conn.Connected := True;
+    Result := True;
+  except
+    ShowMessage('Erro ao conectar com o banco de dados ' + #13 + connBanco + ' em ' + connHost);
+    Result := False;
+  end;
+end;
+
+end.
