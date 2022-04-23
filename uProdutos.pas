@@ -20,6 +20,9 @@ type
     procedure gridProductsDrawColumnCell(Sender: TObject;
       const Rect: TRect; DataCol: Integer; Column: TColumn;
       State: TGridDrawState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure Adicionar1Click(Sender: TObject);
   private
     { Private declarations }
     procedure createDataset;
@@ -37,12 +40,23 @@ implementation
 
 {$R *.dfm}
 
-uses uDatabaseRelatedFunctions, uVariables, uDM;
+uses uDatabaseRelatedFunctions, uVariables, uDM, uProductInfo;
 
 procedure TfProdutos.FormCreate(Sender: TObject);
 begin
   createDataset;
   loadProducts;
+end;
+
+procedure TfProdutos.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  //exiting with Esc
+  if Key = 27 then
+  begin
+    Key := 0;
+    Close;
+  end;
 end;
 
 procedure TfProdutos.gridProductsDrawColumnCell(Sender: TObject;
@@ -70,6 +84,17 @@ begin
 
   gridProducts.DefaultDrawColumnCell(Rect, DataCol, Column, State);
   ShowScrollBar(gridProducts.Handle,SB_Vert,True);
+end;
+
+procedure TfProdutos.Adicionar1Click(Sender: TObject);
+begin
+  try
+    Application.CreateForm(TfProductInfo, fProductInfo);
+    Screen.Cursor := crDefault;
+    fProductInfo.ShowModal;
+  finally
+    fProductInfo.Free;
+  end;
 end;
 
 procedure TfProdutos.createDataset;

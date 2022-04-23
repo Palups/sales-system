@@ -14,6 +14,9 @@ var
   //database
   db_table: TFDQuery;
 
+  //products
+  prod_isNew: Boolean;
+
 implementation
 
 end.

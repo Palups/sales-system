@@ -11,10 +11,12 @@ object fProdutos: TfProdutos
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   Menu = mProdutos
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
   object gridProducts: TDBGrid
@@ -51,6 +53,7 @@ object fProdutos: TfProdutos
       Caption = 'Menu'
       object Adicionar1: TMenuItem
         Caption = 'Adicionar'
+        OnClick = Adicionar1Click
       end
       object Editar1: TMenuItem
         Caption = 'Editar'
