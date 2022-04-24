@@ -88,6 +88,7 @@ end;
 
 procedure TfProdutos.Adicionar1Click(Sender: TObject);
 begin
+  prod_isNew := true;
   try
     Application.CreateForm(TfProductInfo, fProductInfo);
     Screen.Cursor := crDefault;
@@ -95,6 +96,7 @@ begin
   finally
     fProductInfo.Free;
   end;
+  prod_isNew := false;
 end;
 
 procedure TfProdutos.createDataset;

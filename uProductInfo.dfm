@@ -4,8 +4,8 @@ object fProductInfo: TfProductInfo
   Margins.Right = 50
   BorderStyle = bsSingle
   Caption = 'Produtos > Novo'
-  ClientHeight = 138
-  ClientWidth = 485
+  ClientHeight = 125
+  ClientWidth = 484
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,7 +22,7 @@ object fProductInfo: TfProductInfo
   TextHeight = 13
   object Label1: TLabel
     Left = 16
-    Top = 16
+    Top = 32
     Width = 44
     Height = 18
     Caption = 'Name:'
@@ -35,7 +35,7 @@ object fProductInfo: TfProductInfo
   end
   object Label2: TLabel
     Left = 25
-    Top = 40
+    Top = 56
     Width = 35
     Height = 18
     Caption = 'Price:'
@@ -47,8 +47,8 @@ object fProductInfo: TfProductInfo
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 20
-    Top = 64
+    Left = 316
+    Top = 56
     Width = 40
     Height = 18
     Caption = 'Stock:'
@@ -59,37 +59,51 @@ object fProductInfo: TfProductInfo
     Font.Style = []
     ParentFont = False
   end
+  object Label4: TLabel
+    Left = 39
+    Top = 8
+    Width = 21
+    Height = 18
+    Caption = 'ID:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object Panel1: TPanel
     Left = 0
-    Top = 97
-    Width = 485
+    Top = 84
+    Width = 484
     Height = 41
     Align = alBottom
-    TabOrder = 3
+    TabOrder = 4
     ExplicitLeft = 240
     ExplicitTop = 208
     ExplicitWidth = 185
-    object Button1: TButton
+    object btn_save: TButton
       Left = 8
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Save'
       TabOrder = 0
+      OnClick = btn_saveClick
     end
-    object Button2: TButton
+    object btn_close: TButton
       Left = 89
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Close'
       TabOrder = 1
-      OnClick = Button2Click
+      OnClick = btn_closeClick
     end
   end
   object edit_name: TEdit
     Left = 66
-    Top = 16
+    Top = 32
     Width = 407
     Height = 21
     AutoSize = False
@@ -102,11 +116,11 @@ object fProductInfo: TfProductInfo
     MaxLength = 50
     ParentCtl3D = False
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 1
   end
   object edit_price: TEdit
     Left = 66
-    Top = 40
+    Top = 56
     Width = 111
     Height = 21
     AutoSize = False
@@ -119,11 +133,29 @@ object fProductInfo: TfProductInfo
     MaxLength = 11
     ParentCtl3D = False
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 2
   end
-  object Edit1: TEdit
+  object edit_stock: TEdit
+    Left = 362
+    Top = 56
+    Width = 111
+    Height = 21
+    TabStop = False
+    AutoSize = False
+    Ctl3D = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    MaxLength = 11
+    ParentCtl3D = False
+    ParentFont = False
+    TabOrder = 3
+  end
+  object edit_id: TEdit
     Left = 66
-    Top = 64
+    Top = 8
     Width = 111
     Height = 21
     TabStop = False
@@ -138,6 +170,6 @@ object fProductInfo: TfProductInfo
     ParentCtl3D = False
     ParentFont = False
     ReadOnly = True
-    TabOrder = 2
+    TabOrder = 0
   end
 end
