@@ -72,6 +72,13 @@ object fProductInfo: TfProductInfo
     Font.Style = []
     ParentFont = False
   end
+  object btn_openStockControl: TSpeedButton
+    Left = 450
+    Top = 56
+    Width = 23
+    Height = 21
+    Hint = 'Edit stock value'
+  end
   object Panel1: TPanel
     Left = 0
     Top = 84
@@ -110,13 +117,14 @@ object fProductInfo: TfProductInfo
     Ctl3D = False
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -15
+    Font.Height = -14
     Font.Name = 'Tahoma'
     Font.Style = []
     MaxLength = 50
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 1
+    OnExit = edit_nameExit
   end
   object edit_price: TEdit
     Left = 66
@@ -127,46 +135,52 @@ object fProductInfo: TfProductInfo
     Ctl3D = False
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -15
+    Font.Height = -14
     Font.Name = 'Tahoma'
     Font.Style = []
     MaxLength = 11
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 2
+    OnChange = edit_priceChange
+    OnKeyDown = edit_priceKeyDown
+    OnKeyPress = edit_priceKeyPress
   end
   object edit_stock: TEdit
-    Left = 362
+    Left = 360
     Top = 56
-    Width = 111
+    Width = 87
     Height = 21
     TabStop = False
     AutoSize = False
     Ctl3D = False
+    Enabled = False
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -15
+    Font.Height = -14
     Font.Name = 'Tahoma'
     Font.Style = []
     MaxLength = 11
     ParentCtl3D = False
     ParentFont = False
+    ReadOnly = True
     TabOrder = 3
   end
   object edit_id: TEdit
     Left = 66
     Top = 8
-    Width = 111
+    Width = 39
     Height = 21
     TabStop = False
     AutoSize = False
     Ctl3D = False
+    Enabled = False
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
-    Font.Height = -15
+    Font.Height = -14
     Font.Name = 'Tahoma'
-    Font.Style = []
-    MaxLength = 11
+    Font.Style = [fsItalic]
+    MaxLength = 6
     ParentCtl3D = False
     ParentFont = False
     ReadOnly = True

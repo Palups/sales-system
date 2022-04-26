@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, FireDAC.Comp.Client, FireDAC.Stan.Param;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, FireDAC.Comp.Client, FireDAC.Stan.Param,
+  Vcl.Mask, Vcl.Buttons;
 
 type
   TfProductInfo = class(TForm)
@@ -19,11 +20,17 @@ type
     edit_stock: TEdit;
     Label4: TLabel;
     edit_id: TEdit;
+    btn_openStockControl: TSpeedButton;
     procedure btn_closeClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btn_saveClick(Sender: TObject);
+    procedure edit_nameExit(Sender: TObject);
+    procedure edit_priceChange(Sender: TObject);
+    procedure edit_priceKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edit_priceKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     ComponentePro: TComponent;
@@ -35,12 +42,13 @@ type
 
 var
   fProductInfo: TfProductInfo;
+  fAux1, fAux2: String;
 
 implementation
 
 {$R *.dfm}
 
-uses uVariables, uDatabaseRelatedFunctions, uDM;
+uses uVariables, uDatabaseRelatedFunctions, uDM, uSystemRelatedFunctions;
 
 procedure TfProductInfo.btn_saveClick(Sender: TObject);
 var
@@ -97,9 +105,35 @@ begin
 
   if (ActiveControl is TCustomEdit) or (ActiveControl is TComboBox) or (ActiveControl is TMemo) then
   begin
-    TEdit(ActiveControl).Color := $00BAFEF5; //color when focusing
+    TEdit(ActiveControl).Color := $FFFFE0; //color when focusing
     ComponentePro              := ActiveControl;
   end;
+end;
+
+procedure TfProductInfo.edit_nameExit(Sender: TObject);
+begin
+  edit_name.Color := clWindow;
+end;
+
+procedure TfProductInfo.edit_priceChange(Sender: TObject);
+begin
+  fAux2 := fAux1;
+  edit_price.text := currencyMagic(fAux2, Length(fAux2));
+end;
+
+procedure TfProductInfo.edit_priceKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = vk_delete then
+  begin
+    edit_price.clear;
+    fAux1 := '';
+  end;
+end;
+
+procedure TfProductInfo.edit_priceKeyPress(Sender: TObject; var Key: Char);
+begin
+  fAux1 := fAux1 + key;
 end;
 
 function TfProductInfo.fieldValidation: Boolean;
@@ -130,12 +164,14 @@ begin
   begin
     Caption := 'Products > New Product';
 
-    edit_id.Text := IntToStr(getNextFreedId('products'));
+    edit_id.Text := Format('%.*d', [4, getNextFreedId('products')]);
   end
   else
   begin
     Caption := 'Products > Editing Product';
   end;
+
+  edit_name.Color := $FFFFE0;
 end;
 
 procedure TfProductInfo.FormDestroy(Sender: TObject);

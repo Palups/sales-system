@@ -14,6 +14,7 @@ object fMain: TfMain
   Menu = mMain
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object mMain: TMainMenu
@@ -25,15 +26,15 @@ object fMain: TfMain
         Caption = 'Products'
         OnClick = Protudos1Click
       end
+      object Fornecedores1: TMenuItem
+        Caption = 'Suppliers'
+        Enabled = False
+      end
       object N1: TMenuItem
         Caption = '-'
       end
       object N2: TMenuItem
         Caption = 'Customers'
-      end
-      object Fornecedores1: TMenuItem
-        Caption = 'Suppliers'
-        Enabled = False
       end
       object Fornecedores2: TMenuItem
         Caption = '-'
@@ -48,92 +49,61 @@ object fMain: TfMain
     object RelatriodeProdutosVendidos2: TMenuItem
       Caption = 'Stock'
       object Entrada1: TMenuItem
-        Caption = 'Entrada'
+        Caption = 'Entry'
       end
       object Entrada2: TMenuItem
-        Caption = 'Sa'#237'da'
+        Caption = 'Exit'
       end
       object N5: TMenuItem
         Caption = '-'
       end
       object N6: TMenuItem
-        Caption = 'Hist'#243'rico'
+        Caption = 'History'
       end
     end
     object Cadastros2: TMenuItem
-      Caption = 'Vendas'
+      Caption = 'Sales'
       object Nova1: TMenuItem
-        Caption = 'Nova venda'
+        Caption = 'New'
       end
       object Editarvenda1: TMenuItem
-        Caption = 'Editar venda'
+        Caption = 'Edit'
       end
       object N3: TMenuItem
         Caption = '-'
       end
-      object Novooramento1: TMenuItem
-        Caption = 'Novo or'#231'amento'
-      end
-      object Novooramento2: TMenuItem
-        Caption = 'Editar or'#231'amento'
-      end
-      object N7: TMenuItem
-        Caption = '-'
-      end
     end
     object R1: TMenuItem
-      Caption = 'Relat'#243'rios'
+      Caption = 'Reports'
       object Produtos1: TMenuItem
-        Caption = 'Produtos'
+        Caption = 'Products'
       end
       object Produtos2: TMenuItem
-        Caption = 'Clientes'
+        Caption = 'Customers'
       end
       object Fornecedores3: TMenuItem
-        Caption = 'Fornecedores'
+        Caption = 'Suppliers'
         Enabled = False
       end
       object Fornecedores4: TMenuItem
-        Caption = 'Usu'#225'rios'
+        Caption = 'Users'
       end
       object N9: TMenuItem
         Caption = '-'
       end
       object N10: TMenuItem
-        Caption = 'Vendas'
-      end
-      object Oramentos1: TMenuItem
-        Caption = 'Or'#231'amentos'
+        Caption = 'Sales'
       end
       object N11: TMenuItem
         Caption = '-'
       end
       object N12: TMenuItem
-        Caption = 'Estoque'
+        Caption = 'Stock'
       end
-    end
-    object Permisses1: TMenuItem
-      Caption = 'Permiss'#245'es'
-      Enabled = False
     end
     object teis1: TMenuItem
-      Caption = #218'teis'
+      Caption = 'Help'
       Enabled = False
-      object Agenda1: TMenuItem
-        Caption = 'Agenda'
-      end
-      object Agenda2: TMenuItem
-        Caption = 'Calculadora'
-      end
-      object N4: TMenuItem
-        Caption = '-'
-      end
-      object N8: TMenuItem
-        Caption = 'Suporte'
-      end
-      object Verso1: TMenuItem
-        Caption = 'Vers'#227'o'
-      end
       object Verso2: TMenuItem
         Caption = 'Backup'
       end

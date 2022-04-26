@@ -104,10 +104,6 @@
             <Form>fMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uProdutos.pas">
-            <Form>fProdutos</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="uDM.pas">
             <Form>DM</Form>
             <FormType>dfm</FormType>
@@ -117,6 +113,11 @@
         <DCCReference Include="uVariables.pas"/>
         <DCCReference Include="uProductInfo.pas">
             <Form>fProductInfo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uSystemRelatedFunctions.pas"/>
+        <DCCReference Include="uProducts.pas">
+            <Form>fProducts</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
