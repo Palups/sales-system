@@ -42,6 +42,8 @@ type
     N12: TMenuItem;
     procedure Protudos1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -59,7 +61,7 @@ uses uProducts;
 
 procedure TfMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if Application.MessageBox('Are you sure?', 'System warning!', 292) = 6 then
+  if Application.MessageBox('Are you sure you want to exit?', 'System warning!', 292) = 6 then
   begin
     try
       //do something
@@ -69,6 +71,17 @@ begin
    end
    else
     Action := caNone;
+end;
+
+procedure TfMain.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  //exiting with Esc
+  if Key = 27 then
+  begin
+    Key := 0;
+    Close;
+  end;
 end;
 
 procedure TfMain.Protudos1Click(Sender: TObject);

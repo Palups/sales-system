@@ -12,9 +12,9 @@ type
     gridProducts: TDBGrid;
     sbProducts: TStatusBar;
     FlowPanel1: TFlowPanel;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
+    btn_new: TSpeedButton;
+    btn_edit: TSpeedButton;
+    btn_exit: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure gridProductsDrawColumnCell(Sender: TObject;
       const Rect: TRect; DataCol: Integer; Column: TColumn;
@@ -22,7 +22,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure Adicionar1Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure btn_newClick(Sender: TObject);
   private
     { Private declarations }
     procedure createDataset;
@@ -185,8 +185,9 @@ begin
   sbProducts.Panels[0].Text := 'Listed: ' + IntToStr(cds_product.RecordCount);
 end;
 
-procedure TfProducts.SpeedButton1Click(Sender: TObject);
+procedure TfProducts.btn_newClick(Sender: TObject);
 begin
+  prod_isNew := true;
   try
     Application.CreateForm(TfProductInfo, fProductInfo);
     Screen.Cursor := crDefault;
@@ -194,6 +195,7 @@ begin
   finally
     fProductInfo.Free;
   end;
+  prod_isNew := false;
 end;
 
 end.
